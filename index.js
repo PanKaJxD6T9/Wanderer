@@ -37,8 +37,27 @@ app.get("/listing", async (req, res)=>{
     res.render("listings/index.ejs", {allListings});
 });
 
+app.get("/listing/new", (req, res)=>{
+    res.render("listings/new.ejs");
+})
+
 app.get("/listing/:id", async (req, res)=>{
     const {id} = req.params;
     const listing = await Listing.findById(id);
     res.render("listings/show.ejs", {listing});
+});
+
+app.get("/listing/new", (req, res)=>{
+    res.render("listings/new.ejs");
 })
+
+app.post("/listing", async (req, res)=>{
+    let { title, description, image, price, location, country } = req.body;
+    const newListing = await new Listing({title, description, image, price, location, country});
+
+    newListing.save().then((res)=>{
+        console.log("Inserted Successfully")
+    })
+
+    res.redirect("http://localhost:8080/listing")
+});
