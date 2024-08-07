@@ -13,5 +13,8 @@
     <h4>Desciption : <%= listing.description %> </h4>
     <h4>Price : &#8377;<%= listing.price.toLocaleString("en-IN") %></h4>
     <h4>Location : <%= listing.location %>, <%= listing.country %></h4>
+    <form action="http://localhost:8080/listing/<%= listing._id %>/edit" method="get">
+        <button>Edit</button>
+    </form>
 </body>
 </html>

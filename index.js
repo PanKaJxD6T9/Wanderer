@@ -72,5 +72,12 @@ app.put("/listing/:id", async (req, res)=>{
     const {id} = req.params;
     let {title, description, image, price, location, country } = req.body;
     await Listing.findByIdAndUpdate(id, {title, description, image, price, location, country});
-    res.redirect("http://localhost:8080/listing")
+    res.redirect(`http://localhost:8080/listing/${id}`)
+});
+
+app.delete("/listing/:id", async (req, res)=>{
+    const {id} = req.params;
+    await Listing.findByIdAndDelete(id);
+    console.log("Entry Deleted");
+    res.redirect("http://localhost:8080/listing");
 });
