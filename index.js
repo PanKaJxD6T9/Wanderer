@@ -53,11 +53,24 @@ app.get("/listing/new", (req, res)=>{
 
 app.post("/listing", async (req, res)=>{
     let { title, description, image, price, location, country } = req.body;
-    const newListing = await new Listing({title, description, image, price, location, country});
+    const newListing = new Listing({title, description, image, price, location, country});
 
-    newListing.save().then((res)=>{
+    await newListing.save().then((res)=>{
         console.log("Inserted Successfully")
     })
 
+    res.redirect("http://localhost:8080/listing")
+});
+
+app.get("/listing/:id/edit", async (req, res)=>{
+    const {id} = req.params;
+    const listing = await Listing.findById(id);
+    res.render("listings/edit.ejs", {listing});
+});
+
+app.put("/listing/:id", async (req, res)=>{
+    const {id} = req.params;
+    let {title, description, image, price, location, country } = req.body;
+    await Listing.findByIdAndUpdate(id, {title, description, image, price, location, country});
     res.redirect("http://localhost:8080/listing")
 });
