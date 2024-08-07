@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>New Listing</title>
-</head>
+<% layout("layouts/boilerplate.ejs") %>
 <body>
+    <h1>Add a New Listing</h1>
     <form action="http://localhost:8080/listing" method="post">
         <input type="text" name="title" id="" placeholder="Title">
         <br><br>
@@ -22,4 +17,3 @@
         <button>Add Listing</button>
     </form>
 </body>
-</html>
