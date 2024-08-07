@@ -13,9 +13,6 @@
     <ul>
         <% for(listing of allListings) { %>
             <li><a href="/listing/<%= listing._id %>"><%= listing.title %></a></li>
-            <form action="http://localhost:8080/listing/<%= listing._id %>?_method=DELETE" method="post">
-                <button>Delete</button>
-            </form>
         <% } %>
     </ul>
 </body>

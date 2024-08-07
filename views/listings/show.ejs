@@ -16,5 +16,9 @@
     <form action="http://localhost:8080/listing/<%= listing._id %>/edit" method="get">
         <button>Edit</button>
     </form>
+    <br>
+    <form action="http://localhost:8080/listing/<%= listing._id %>?_method=DELETE" method="post">
+        <button>Delete</button>
+    </form>
 </body>
 </html>
