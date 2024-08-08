@@ -92,3 +92,9 @@ footer{
     opacity: 0.2;
     background-color: white;
 }
+
+.show-img{
+    width: 50vw !important;
+    height: 50vh !important;
+    object-fit: cover;
+}
