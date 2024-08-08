@@ -1,19 +1,31 @@
 <% layout("layouts/boilerplate.ejs") %>
 <body>
-    <h1>Editing <%= listing.title %></h1>
+    <h1>Editing : <u><%= listing.title %></h1></u>
+    <br><br>
     <form action="http://localhost:8080/listing/<%= listing._id %>?_method=PUT" method="post">
-        <input type="text" value="<%= listing.title %>" name="title" id="" placeholder="Title">
+        <label for="title" class="form-label">Title: </label>
+        <input type="text" name="title" id="" placeholder="Title" class="form-control" value="<%= listing.title %>">
         <br><br>
-        <textarea name="description" value="<%= listing.description %>" id="" placeholder="description"><%= listing.description %></textarea>
+        <label for="description" class="form-label">Description: </label>
+        <textarea name="description" id="" placeholder="description" class="form-control"><%= listing.description %></textarea>
         <br><br>
-        <input type="text" value="<%= listing.image %>" name="image" id="" placeholder="image">
+        <label for="image" class="form-label">Image Url: </label>
+        <input type="text" name="image" id="" placeholder="image" class="form-control" value="<%= listing.image %>">
         <br><br>
-        <input type="number" value="<%= listing.price %>" name="price" id="" placeholder="price">
+        <div class="row">
+            <div class="col-4">
+                <label for="price" class="form-label">Price: </label>
+                <input type="number" name="price" id="" placeholder="price" class="form-control" value="<%= listing.price %>">
+            </div>
+            <div class="col-8">
+                <label for="country" class="form-label">Country: </label>
+                <input type="text" name="country" id="" placeholder="country" class="form-control" value="<%= listing.country %>">
+            </div>
+        </div>
         <br><br>
-        <input type="text" value="<%= listing.location %>" name="location" id="" placeholder="location">
+        <label for="location" class="form-label">Location: </label>
+        <input type="text" name="location" id="" placeholder="location" class="form-control" value="<%= listing.location %>">
         <br><br>
-        <input type="text" value="<%= listing.country %>" name="country" id="" placeholder="country">
-        <br><br>
-        <button>Edit Listing</button>
+        <button class="btn btn-outline-success">Edit Listing</button>
     </form>
 </body>
